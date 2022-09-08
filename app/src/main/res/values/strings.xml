@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SnappFood</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_title">اسنپ فود</string>
+    <string name="search_snappfood">چستجو در اسنپ فود</string>
+    <string name="my_account">حساب من</string>
+    <string name="orders">سفارش ها</string>
+    <string name="home">خانه</string>
+    <string name="categories">دسته بندی ها</string>
+</resources>
