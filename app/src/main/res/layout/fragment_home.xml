@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_margin="@dimen/margin_16"
         android:layout_height="50dp"
+        android:inputType="text"
         android:paddingStart="@dimen/margin_8"
         android:background="@drawable/corner_box"
         app:layout_constraintEnd_toEndOf="parent"

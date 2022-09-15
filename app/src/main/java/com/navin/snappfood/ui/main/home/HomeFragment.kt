@@ -1,11 +1,16 @@
 package com.navin.snappfood.ui.main.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -17,6 +22,7 @@ import com.navin.snappfood.models.FoodModel
 import com.navin.snappfood.models.IView
 import com.navin.snappfood.ui.main.adapter.CategoryAdapter
 import com.navin.snappfood.ui.main.adapter.FoodAdapter
+import com.navin.snappfood.ui.search.SearchActivity
 import okhttp3.ResponseBody
 
 
@@ -24,6 +30,7 @@ class HomeFragment : Fragment() , IView<Any> {
 
 
     lateinit var binding: FragmentHomeBinding
+    var search : String="";
 
     var presenter  = HomePresenter(this)
      var foodsPresenter = FoodsPresenter(this)
@@ -81,6 +88,36 @@ class HomeFragment : Fragment() , IView<Any> {
             }
         }
 
+
+        binding.edtSearch.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                search = p0.toString()
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+
+       binding.edtSearch.setOnEditorActionListener(object  : TextView.OnEditorActionListener{
+           override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
+
+
+               val intent = Intent(requireContext() , SearchActivity::class.java)
+               intent.putExtra("data",search)
+               startActivity(intent)
+
+               return true
+           }
+
+       })
 
 
     }

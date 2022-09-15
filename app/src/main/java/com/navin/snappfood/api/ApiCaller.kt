@@ -56,4 +56,26 @@ class ApiCaller {
 
     }
 
+
+
+    fun searchFoods(search :String , listener : IMessageListener<FoodModel>) {
+
+        Log.e("","")
+        iService.searchFoods(search).enqueue(object  : Callback<FoodModel> {
+            override fun onResponse(call: Call<FoodModel>, response: Response<FoodModel>) {
+                Log.e("","")
+                response.body()?.let { listener.onSuccess(it) }
+            }
+
+            override fun onFailure(call: Call<FoodModel>, t: Throwable) {
+                Log.e("","")
+                listener.onFailure("")
+            }
+
+        })
+
+
+    }
+
+
 }

@@ -25,4 +25,7 @@ interface IService {
     @GET("api.php?latest")
     fun foodsList() : Call<FoodModel>
 
+    @GET("api.php")
+    fun searchFoods(@Query("search_text") search : String) : Call<FoodModel>
+
 }
